@@ -16,6 +16,7 @@ ENV PA11Y_WEBSERVICE_PORT ${PA11Y_WEBSERVICE_PORT:-3000}
 ENV PA11Y_WEBSERVICE_CRON ${PA11Y_WEBSERVICE_CRON:-"0 30 0 * * *"}
 
 # Dependencies
+RUN apt-get update -y && apt-get upgrade -y && apt-get install net-tools -y
 RUN npm install phantomjs-prebuilt -g
 
 # Retrieve the dashboard
