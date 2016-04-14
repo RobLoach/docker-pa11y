@@ -17,7 +17,7 @@ ENV PA11Y_WEBSERVICE_CRON ${PA11Y_WEBSERVICE_CRON:-"0 30 0 * * *"}
 
 # Dependencies
 RUN apt-get update -y && apt-get upgrade -y && apt-get install net-tools -y
-RUN npm install phantomjs-prebuilt -g
+RUN npm install phantomjs-prebuilt@2 -g
 
 # Retrieve the dashboard
 RUN git clone --branch $PA11Y_VERSION https://github.com/springernature/pa11y-dashboard.git

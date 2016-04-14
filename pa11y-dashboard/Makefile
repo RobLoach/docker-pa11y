@@ -3,5 +3,3 @@ build:
 
 run:
 	docker run robloach/pa11y-dashboard
-
-.PHONY: build
