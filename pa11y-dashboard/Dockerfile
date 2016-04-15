@@ -1,6 +1,6 @@
 # pa11y-dashboard Docker Container
 # https://github.com/springernature/pa11y-dashboard
-FROM node:4
+FROM node:5
 MAINTAINER Rob Loach <robloach@gmail.com>
 
 # Dependencies
@@ -22,10 +22,7 @@ ENV PA11Y_WEBSERVICE_CRON ${PA11Y_WEBSERVICE_CRON:-"0 30 0 * * *"}
 RUN npm install phantomjs-prebuilt@2 -g
 
 # Retrieve the dashboard
-RUN git clone --branch $PA11Y_VERSION https://github.com/springernature/pa11y-dashboard.git
-
-# Install dependencies
-RUN cd pa11y-dashboard && npm i && cd node_modules/truffler && npm i node-phantom-simple@~2.2 --save && rm -rf node_modules && npm i
+RUN git clone --branch $PA11Y_VERSION https://github.com/springernature/pa11y-dashboard.git && cd pa11y-dashboard && npm i && cd node_modules/truffler && npm i node-phantom-simple@~2.2 --save && rm -rf node_modules && npm i
 
 EXPOSE 4000
 EXPOSE 3000
