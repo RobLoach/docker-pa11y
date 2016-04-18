@@ -22,7 +22,7 @@ ENV PA11Y_WEBSERVICE_CRON ${PA11Y_WEBSERVICE_CRON:-"0 30 0 * * *"}
 RUN npm install phantomjs-prebuilt@2 -g
 
 # Retrieve the dashboard
-RUN git clone --branch $PA11Y_VERSION https://github.com/springernature/pa11y-dashboard.git && cd pa11y-dashboard && npm i && cd node_modules/truffler && npm i node-phantom-simple@~2.2 --save && rm -rf node_modules && npm i
+RUN git clone https://github.com/springernature/pa11y-dashboard.git && cd pa11y-dashboard && npm i pa11y-webservice@~1.8 --save && npm i
 
 EXPOSE 4000
 EXPOSE 3000
