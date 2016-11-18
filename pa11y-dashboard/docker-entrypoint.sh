@@ -11,7 +11,7 @@ echo "{\n"\
 	"    \"port\": $PA11Y_WEBSERVICE_PORT,\n"\
 	"    \"cron\": \"$PA11Y_WEBSERVICE_CRON\"\n"\
 	"  }\n"\
-	"}" | tee /pa11y-dashboard/config/production.json
+	"}" | tee /dashboard/config/production.json
 
 # Start up the dashboard.
-cd /pa11y-dashboard && node .
+cd /dashboard && node .
