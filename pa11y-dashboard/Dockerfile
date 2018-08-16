@@ -1,6 +1,6 @@
 # pa11y-dashboard Docker Container
 # https://github.com/pa11y/dashboard
-FROM node:5
+FROM node:8
 MAINTAINER Rob Loach <robloach@gmail.com>
 
 # Dependencies
@@ -8,7 +8,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install net-tools -y
 
 # Environment variables
 ENV NODE_ENV ${NODE_ENV:-production}
-ENV PA11Y_VERSION 1.8.2
+ENV PA11Y_VERSION 5.0.4
 ENV PA11Y_PORT ${PORT:-4000}
 ENV PA11Y_NOINDEX ${PA11Y_NOINDEX:-true}
 ENV PA11Y_READONLY ${PA11Y_READONLY:-false}
