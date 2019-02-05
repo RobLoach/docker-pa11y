@@ -1,0 +1,14 @@
+# pa11y-dashboard
+web:
+  # Build the image off of Dockie
+  # https://github.com/robloach/dockie
+  #image: robloach/pa11y:dashboard
+  build: .
+  ports:
+    - "8000:4000"
+  links:
+    - database:mongodb
+database:
+  image: mongo:3.2
+  ports:
+    - "27017"
