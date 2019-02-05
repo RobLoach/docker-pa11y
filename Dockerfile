@@ -1,7 +1,7 @@
 # pa11y-dashboard Docker Container
 # https://github.com/pa11y/dashboard
 FROM node:5
-MAINTAINER Rob Loach <robloach@gmail.com>
+LABEL Rob Loach <robloach@gmail.com>
 
 # Dependencies
 RUN apt-get update -y && apt-get upgrade -y && apt-get install net-tools -y
@@ -27,6 +27,8 @@ RUN git clone https://github.com/pa11y/dashboard.git && cd dashboard && npm i
 EXPOSE 4000
 EXPOSE 3000
 
-# Set up the startup script.
-COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+COPY production.json /dashboard/config/production.json
+
+# Start the web server
+WORKDIR /dashboard
+CMD node .
