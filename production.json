@@ -2,11 +2,16 @@
   "port": 4000,
   "noindex": true,
   "readonly": false,
-
   "webservice": {
-    "database": "mongodb://mongodb/pa11y-webservice",
+    "database": "mongodb://mongodb:27017/pa11y-webservice",
     "host": "0.0.0.0",
     "port": 3000,
-    "cron": "0 30 0 * * *"
+    "cron": "0 30 0 * * *",
+       "chromeLaunchConfig": {
+        "ignoreHTTPSErrors": false,
+        "args": [
+          "--no-sandbox"
+        ]
+    }
   }
 }
